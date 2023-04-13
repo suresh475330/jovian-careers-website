@@ -23,3 +23,15 @@ def getAllJobs():
 
         return jobs
 
+def getJobById(id):
+    with engine.connect() as conn:
+        result = conn.execute(text(f"SELECT * FROM jobs WHERE id = {id}"))
+        job = []
+
+        for row in result.all():
+            job.append(row._asdict())
+
+        if len(job) == 0:
+            return None
+        else:
+            return job[0]
