@@ -5,9 +5,9 @@ import os
 load_dotenv()
 
 
-# dbConnectionString = os.getenv("dbString")
+dbConnectionString = os.getenv("dbString")
 
-engine = create_engine("mysql+pymysql://caza5h15m37220pe6hir:pscale_pw_LmQLDoAduJiPWsPneWxpPaZzwSzUmZL61wIlPcQrEVv@aws.connect.psdb.cloud/makecareers?charset=utf8mb4",connect_args={
+engine = create_engine(dbConnectionString,connect_args={
     "ssl": {
             "ssl_ca": "/etc/ssl/cert.pem"
         }
