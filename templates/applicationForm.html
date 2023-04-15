@@ -1,0 +1,53 @@
+<style>
+    @media only screen and (min-width: 600px) {
+        .form-layout {
+            max-width: 60%;
+        }
+
+    }
+</style>
+
+<h4 class="mt-4 mb-4 text-dark text-opacity-75">Application Form</h4>
+<form class="form-layout" action="/job/{{job['id']}}/apply" method="post" enctype="application/x-www-form-urlencoded">
+    <div class="mb-2">
+        <label class="form-label">Full Name</label><br>
+        <input class="form-control" type="text" required minlength="3" name="full_name" placeholder="Suresh Kumar">
+    </div>
+
+    <div class="mb-2">
+        <label class="form-label">Email</label><br>
+        <input class="form-control" type="email" required name="email" placeholder="suresh@gmail.com">
+    </div>
+
+    <div class="mb-4">
+        <label class="form-label">LinkedIn URL</label><br>
+        <input class="form-control" type="url" name="linkedin_url" placeholder="https://linked.com/in/sureshkumar">
+    </div>
+
+    <div class="mb-2 form-floating">
+        <textarea style="height: 100px" class="form-control" id="education" name="education"></textarea>
+        <label for="education">Education</label><br>
+    </div>
+
+    <div class="mb-2 form-floating">
+        <textarea class="form-control" style="height: 100px" id="work_experience" name="work_experience"></textarea>
+        <label for="work_experience">Work Experience</label><br>
+    </div>
+
+    <div class="mb-2">
+        <label lass="form-label">Resume URL</label><br>
+        <input class="form-control" type="url" name="resume_url">
+    </div>
+
+    {% if hCaptchaError %}
+    <div class="alert alert-danger" role="alert">
+        {{ hCaptchaError }}
+    </div>
+    {% endif %}
+
+    <div class="mt-2">
+        {{ hcaptcha }}
+    </div>
+
+    <input type="submit" class="btn btn-secondary mt-4">
+</form>

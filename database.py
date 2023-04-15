@@ -35,3 +35,20 @@ def getJobById(id):
             return None
         else:
             return job[0]
+
+
+
+
+
+def add_application_to_db(job_id, data):
+  with engine.connect() as conn:
+
+    full_name=data['full_name'],
+    email=data['email'],
+    linkedin_url=data['linkedin_url'],
+    education=data['education'],
+    work_experience=data['work_experience'],
+    resume_url=data['resume_url']
+
+    query = text(f"INSERT INTO applications (job_id, full_name, email, linkedin_url, education, work_experience, resume_url) VALUES ({job_id},'{full_name[0]}','{email[0]}','{linkedin_url[0]}','{education[0]}','{work_experience[0]}','{resume_url}')")
+    conn.execute(query)
