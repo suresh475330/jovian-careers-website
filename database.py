@@ -4,14 +4,9 @@ import os
 
 load_dotenv()
 
-
 dbConnectionString = os.getenv("dbString")
 
-engine = create_engine(dbConnectionString,connect_args={
-    "ssl": {
-            "ssl_ca": "/etc/ssl/cert.pem"
-        }
-})
+engine = create_engine(dbConnectionString,echo=True)
 
 def getAllJobs():
     with engine.connect() as conn:
@@ -52,3 +47,4 @@ def add_application_to_db(job_id, data):
 
     query = text(f"INSERT INTO applications (job_id, full_name, email, linkedin_url, education, work_experience, resume_url) VALUES ({job_id},'{full_name[0]}','{email[0]}','{linkedin_url[0]}','{education[0]}','{work_experience[0]}','{resume_url}')")
     conn.execute(query)
+    conn.commit()

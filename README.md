@@ -9,7 +9,7 @@ Falsk tutorial for creating web application
 * Go To hCaptcha website and register a account get a HCAPTCHA_SITE_KEY and  HCAPTCHA_SECRET_KEY
 
 ```bash
-    dbString="connectionString"
+    dbString="mysql+<drivername>://<username>:<password>@<server>:<port>/dbname"
 
     MAIL_USERNAME="yourGmail@gmail.com"
     MAIL_PASSWORD="your gmail app password"
