@@ -1,7 +1,14 @@
-# jovian-careers-website
-Falsk tutorial for creating web application
+# Make-careers-website
 
-# .env config
+## Run app
+
+* git clone <url>
+* Go to project folder create a vertual env in project
+* Activate the vertual env
+* Run pip install -r requirements.txt
+* Run flask run or gunicorn app:app
+
+## .env config
 
 * Go To your planatScale platform and get the mysql database connection string to added to dbString
 * Enter your email in MAIL_USERNAME
